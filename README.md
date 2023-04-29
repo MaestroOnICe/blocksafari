@@ -4,7 +4,7 @@
 
 **blocksafari** was a proof-of-concept for the early stages of [btcd](https://github.com/btcsuite/btcd).
 
-![alt text](https://github.com/MaestroOnICe/blocksafari/images/screenshot.png)
+![alt text](https://github.com/MaestroOnICe/blocksafari/blob/master/images/screenshot.png)
 
 This code is not suitable for production use!
 
