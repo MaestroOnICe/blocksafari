@@ -1,6 +1,6 @@
 module blocksafari
 
-go 1.20
+go 1.17
 
 require (
 	github.com/btcsuite/btcd v0.23.4
