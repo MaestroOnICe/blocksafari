@@ -212,7 +212,6 @@ func handleTx(w http.ResponseWriter, r *http.Request) {
 
 func handleRequest(w http.ResponseWriter, r *http.Request) {
 	path := r.URL.Path[1:]
-	fmt.Fprintf(os.Stderr, "listening:\n")
 
 	r.Header.Set("Connection", "close")
 	page := strings.Split(path, "/")[0]

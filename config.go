@@ -31,12 +31,9 @@ const (
 
 var (
 	btcdHomeDir        = btcutil.AppDataDir("btcd", false)
-	bsHomeDir          = btcutil.AppDataDir("blocksafari", false)
 	cfg                *config
-	defaultConfigFile  = filepath.Join(bsHomeDir, defaultConfigFilename)
+	defaultConfigFile  = filepath.Join(os.Getenv("PWD"), defaultConfigFilename)
 	defaultRPCCertFile = filepath.Join(btcdHomeDir, "rpc.cert")
-
-	pem []byte
 )
 
 // loadConfig initializes and parses the config using a config file and command
@@ -78,7 +75,7 @@ func loadConfig() (*config, []string, error) {
 		return nil, nil, err
 	}
 
-	pem, err = os.ReadFile(cfg.RPCCert)
+	_, err = os.ReadFile(cfg.RPCCert)
 	if err != nil {
 		return nil, nil, err
 	}

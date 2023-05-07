@@ -12,12 +12,21 @@ This code is not suitable for production use!
 
 Build from source
 
-    Install Go according to the installation instructions here: http://golang.org/doc/install
+    1. Install Go according to the installation instructions here: http://golang.org/doc/install
+    
+    2. Clone the repository and build the application
 
-## Updating
-Build from Source
+## How to use
 
-    Run the following command to update blocksafari, all dependencies, and install it: $ go get -u -v github.com/btcsuite/blocksafari/...
+    Copy the sample-blocksafari.conf to blocksafari.conf
+
+    Application Options:
+    -C, --configfile    = Path to configuration file
+        --listen        = Add an interface/port to listen on
+    -c, --rpccert       = RPC server certificate chain for validation
+    -s, --rpcserver     = IP and port for rpcserver
+    -u, --rpcuser       = rpc username
+    -P, --rpcpass       = rpc password
 
 ## License
 

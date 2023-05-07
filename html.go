@@ -66,7 +66,7 @@ func printBlock(w http.ResponseWriter, block *btcjson.GetBlockVerboseResult, tra
 	txs := make([]blockPageTx, len(trans))
 	for i, tran := range trans {
 		txs[i] = blockPageTx{
-			DisplayHash: fmt.Sprintf("%s", tran.Txid)[:10],
+			DisplayHash: tran.Txid[:10],
 			Hash:        tran.Txid,
 			Vin:         tran.Vin,
 			Vout:        tran.Vout,
@@ -83,7 +83,7 @@ func printBlock(w http.ResponseWriter, block *btcjson.GetBlockVerboseResult, tra
 		Nonce:        block.Nonce,
 		PreviousHash: block.PreviousHash,
 		Size:         fmt.Sprintf("%0.3f", float64(block.Size)/1000.00),
-		Timestamp:    fmt.Sprintf("%s", tmpTime.String()[:19]),
+		Timestamp:    tmpTime.String()[:19],
 		Txs:          txs,
 	}
 	err := templates.ExecuteTemplate(w, "block.html", b)
@@ -137,11 +137,11 @@ func printMainBlock(w http.ResponseWriter, blocks []*btcjson.GetBlockVerboseResu
 		tmpTime := time.Unix(block.Time, 0)
 
 		display[i] = displayMainPage{
-			DisplayHash: fmt.Sprintf("%s", strings.TrimLeft(block.Hash, "0"))[:10],
+			DisplayHash: strings.TrimLeft(block.Hash, "0")[:10],
 			Hash:        block.Hash,
 			Height:      block.Height,
 			Size:        fmt.Sprintf("%0.3f", float64(block.Size)/1000.00),
-			Timestamp:   fmt.Sprintf("%s", tmpTime.String()[:19]),
+			Timestamp:   tmpTime.String()[:19],
 			Txs:         len(block.RawTx),
 			TotalBTC:    fmt.Sprintf("%.8f", totalBtc),
 		}
